@@ -1,4 +1,8 @@
-import Link from "next/link"
+import AddressIcon from "../icons/address-icon"
+import ArrowRightIcon from "../icons/arrow-right-icon"
+import DateIcon from "../icons/date-icon"
+import Button from "../ui/button"
+import styles from './event-item.module.css'
 
 function EventItem(props) {
 
@@ -12,20 +16,27 @@ function EventItem(props) {
     const exploreLink = `/events/${id}`
 
     return (
-        <li>
+        <li className={styles.item}>
             <img src={'/' + image} alt={title} />
-            <div>
-                <div>
+            <div className={styles.content}>
+                <div className={styles.summary}>
                     <h2>{title}</h2>
-                    <div>
+                    <div className={styles.date}>
+                        <DateIcon />
                         <time>{humanReadableDate}</time>
                     </div>
-                    <div>
+                    <div className={styles.address}>
+                        <AddressIcon />
                         <address>{formattedAddress}</address>
                     </div>
                 </div>
-                <div>
-                    <Link href={exploreLink} >Explore Event</Link>
+                <div className={styles.actions}>
+                    <Button link={exploreLink}>
+                        <span>Explore Event</span>
+                        <span className={styles.icon}>
+                            <ArrowRightIcon />
+                        </span>
+                    </Button>
                 </div>
             </div>
         </li>
