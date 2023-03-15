@@ -13,3 +13,7 @@ function HomePage() {
 }
 
 export default HomePage
+
+export async function getStaticProps() {
+    
+}
